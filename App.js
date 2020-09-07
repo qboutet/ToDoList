@@ -1,21 +1,35 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, SafeAreaView,View } from 'react-native';
+import Header from "./src/components/_Shared/Header";
+import TasksContainer from "./src/components/TasksEpic/TasksContainer";
+
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+      <View style={styles.subContainer} >
+          <SafeAreaView style={styles.container}>
+
+             <Header/>
+             <TasksContainer/>
+
+          </SafeAreaView>
+      </View>
+
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+      flex: 1,
+      backgroundColor: '#D6E4FF',
+      margin: 20,
+
+
+
   },
+    subContainer:{flex:1,
+        backgroundColor: '#D6E4FF',
+
+    }
 });
+
