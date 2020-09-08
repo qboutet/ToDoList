@@ -1,6 +1,8 @@
 import React from 'react';
 import {Image, Text, View, StyleSheet,TouchableOpacity} from 'react-native';
-
+import icon_check  from '../../../assets/icon_check.png';
+import icon_circle from '../../../assets/icon_circle.png';
+import icon_bin from '../../../assets/icon_bin.png';
 
 const TaskTile = ({id, title, completed, onChangeStatus, onDeleteTask }) => {
     return(
@@ -10,7 +12,7 @@ const TaskTile = ({id, title, completed, onChangeStatus, onDeleteTask }) => {
              <TouchableOpacity onPress={() => onChangeStatus(id)}>
                 <Image
                 style={styles.iconCircle}
-                source={completed ? require('../../../assets/icon_check.png') : require('../../../assets/icon_circle.png')}/>
+                source={completed ? icon_check : icon_circle }/>
              </TouchableOpacity>
                <TouchableOpacity onPress={() => onChangeStatus(id)}>
                <Text style={[styles.title, {color: completed ? '#a0c4ff' : '#000D14'}]}>{title}</Text>
@@ -18,7 +20,7 @@ const TaskTile = ({id, title, completed, onChangeStatus, onDeleteTask }) => {
            </View>
            <TouchableOpacity onPress={() => onDeleteTask(id)}>
                  <Image style={styles.iconBin}
-                       source={ require('../../../assets/icon_bin.png')}
+                       source={ icon_bin }
                 />
            </TouchableOpacity>
         </View>

@@ -1,16 +1,18 @@
 import React,{ useState } from 'react';
 import {View,TextInput, StyleSheet,Image,TouchableOpacity} from 'react-native';
-
+import send from '../../../assets/send.png'
 
 const TaskForm = ({onAddTask}) => {
 
     const [title, setTitle] = useState('')
+
+ ///  title prend la valeur du texte saisi dans le textInput ///
     const _onChangeText = value => {
         setTitle( value )
     };
 
-
-    const _oncPressBtn = () =>{
+ /// Ajout d'une tâche lors d'un clique sur  l'image 'send' ou la touche dédiée sur le clavier ///
+    const _onPressBtn = () =>{
         if (title.length > 0) {
             onAddTask(title);
             setTitle('');
@@ -27,11 +29,11 @@ const TaskForm = ({onAddTask}) => {
                             placeholder = "Créer une nouvelle tâche"
                             returnKeyType = {"done"}
                             style={{ color:'#a0c4ff' }}
-                            onSubmitEditing={_oncPressBtn}
+                            onSubmitEditing={_onPressBtn}
                 />
             </View>
-            <TouchableOpacity onPress={_oncPressBtn}>
-                <Image source={require('../../../assets/send.png')} style={styles.btn} />
+            <TouchableOpacity onPress={_onPressBtn}>
+                <Image source={send} style={styles.btn} />
             </TouchableOpacity>
         </View>
 

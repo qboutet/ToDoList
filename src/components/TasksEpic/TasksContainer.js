@@ -6,17 +6,16 @@ import CountersContainer from "./Counters.Container";
 import FloatingButton from "../_Shared/FLoatingButton";
 
  function  TasksContainer(props) {
-     const [tasks, setTasks] = useState([
-        //{id:new Date().getTime(), title: "Nouvelle tâches", completed: false }
-     ]);
+     const [tasks, setTasks] = useState([]);
 
      const [isFormOpened, setIsFormOpened] = useState(false)
 
+  /// crééer une nouvelle tâche ///
      const onAddTask = (title) => {
-         const newTask = {id:new Date().getTime(), title: title, completed: false }
+         const newTask = {id:new Date().getTime().toString(), title: title, completed: false }
          setTasks([newTask, ...tasks])
      };
-
+ /// change le statut de la tâche ///
      const onChangeStatus =(id) => {
          let newTask = []
 
@@ -30,7 +29,7 @@ import FloatingButton from "../_Shared/FLoatingButton";
          });
          setTasks(newTask);
      }
-
+/// supprime une tâche ///
      const onDeleteTask = id => {
          let newTasks = []
 
@@ -41,7 +40,7 @@ import FloatingButton from "../_Shared/FLoatingButton";
          });
          setTasks(newTasks);
      }
-
+/// compteur de tâche complétée ///
      const getTasksCompleted = () => {
          let counter = 0
 
@@ -56,6 +55,7 @@ import FloatingButton from "../_Shared/FLoatingButton";
          return counter
      };
 
+ ///  Affiche le formulaire de saisi de tâche au clique sur du floatingButton ///
      const toggleForm = () => {
          setIsFormOpened(!isFormOpened)
      }
